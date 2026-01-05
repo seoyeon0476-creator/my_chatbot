@@ -108,14 +108,14 @@ def initialize_chain(selected_model: str, pdf_path: str):
 # -------------------------------------------------------------------
 # ✅ Streamlit UI
 # -------------------------------------------------------------------
-st.set_page_config(page_title="감정공감챗봇", page_icon="📚")
-st.header("감정공감챗봇 💬📚")
+st.set_page_config(page_title="직업 전망성챗봇", page_icon="📚")
+st.header("직업 전망성챗봇 💬📚")
 
 # 모델 선택
 option = st.selectbox("Select GPT Model", ("gpt-4o-mini", "gpt-3.5-turbo-0125"))
 
 # PDF 선택: (1) 레포에 있는 기본 PDF 경로, (2) 업로드
-DEFAULT_PDF = "감정공감챗봇.pdf"
+DEFAULT_PDF = "직업 전망성.pdf"
 
 uploaded = st.file_uploader("PDF를 업로드하거나, 기본 PDF로 실행하세요.", type=["pdf"])
 pdf_path = None
@@ -165,5 +165,6 @@ if prompt_message := st.chat_input("질문을 입력하세요"):
                 for doc in response.get("context", []):
                     src = doc.metadata.get("source", "source")
                     st.markdown(src, help=doc.page_content)
+
 
 
